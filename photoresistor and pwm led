@@ -1,0 +1,17 @@
+// Circuit for teaching basic controling - sensning, computing and actuating
+
+#define Photoresistor A0
+const int ledPin = 4; 
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int analog_value = analogRead(Photoresistor);
+  int brightness = map(analog_value, 0, 1000, 255, 0);
+  Serial.println(brightness);
+  analogWrite(ledPin, brightness);
+
+  delay(10);
+}
